@@ -1,0 +1,22 @@
+{
+  "name": "data-grabbing",
+  "version": "1.0.0",
+  "description": "cheerio study.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TimRChen/Data-grabbing.git"
+  },
+  "author": "timrchen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TimRChen/Data-grabbing/issues"
+  },
+  "homepage": "https://github.com/TimRChen/Data-grabbing#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0"
+  }
+}
