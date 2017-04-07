@@ -4,7 +4,7 @@
 ### 如何开始
     git clone https://github.com/TimRChen/Data-grabbing.git
     npm install
-    node lib/grab.js
+    node lib/grab.js 或者 npm start
 
 ### 遇到的问题
     imgList.forEach报错: imgList.forEach is not a function(分析错误，最后发现为传参错误)
