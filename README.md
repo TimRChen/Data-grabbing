@@ -2,7 +2,9 @@
     Data grabbing. study by https://github.com/cheeriojs/cheerio.
 
 ### 如何开始
-    node lib/grab.js    
+    `git clone https://github.com/TimRChen/Data-grabbing.git`
+    `npm install`
+    `node lib/grab.js`
 
 ### 遇到的问题
     imgList.forEach报错: imgList.forEach is not a function(分析错误，最后发现为传参错误)
