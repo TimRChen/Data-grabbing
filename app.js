@@ -3,8 +3,9 @@
  * @author timrchen
  */
 
-// 'use strict'
+'use strict'
 
+const express = require('express');
 const fs = require('fs');
 const cheerio = require('cheerio');
 const async = require('async');
@@ -168,4 +169,15 @@ async function dataGrab() {
     }
 }
 
-dataGrab();
+// dataGrab();
+
+
+// 服务器配置
+let app = express();
+
+app.get('/', (req, res) => {
+    res.send('hello');
+});
+
+app.listen(3000);
+
