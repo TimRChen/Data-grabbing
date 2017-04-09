@@ -6,6 +6,7 @@
 'use strict'
 
 const express = require('express');
+
 const fs = require('fs');
 const cheerio = require('cheerio');
 const async = require('async');
@@ -160,6 +161,9 @@ let downloadImg = albumList => {
     q.push(imgListTemp);
 };
 
+// 定义渲染内容
+let options = {};
+
 async function dataGrab() {
     let albums = await getAlbumsAsync();
     let albumList = await getImageListAsync(albums);
@@ -167,16 +171,26 @@ async function dataGrab() {
     if (Config.downloadImg) {
         downloadImg(albumList);
     }
+    options = {
+        title: 'Albums',
+        photos: JSON.stringify(albumList),
+    };
 }
 
-// dataGrab();
-
+dataGrab();
 
 // 服务器配置
 let app = express();
 
+app.set('views', './views');
+app.set('view engine', 'pug');
+
 app.get('/', (req, res) => {
-    res.send('hello');
+    res.render('show', {title: 'Hey', message: 'Hello there!'});
+});
+
+app.get('/open', (req, res) => {
+    res.render('pic', options);
 });
 
 app.listen(3000);
