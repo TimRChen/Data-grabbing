@@ -9,5 +9,5 @@ html(lang="en")
             ol
                 - for (let i = 0; i < albums.length; i++) 
                     li 
-                        a(href=albums[i].url) #{albums[i].title}
+                        a(href=albums[i].url target="_blank") #{albums[i].title}
                         img(src=albums[i].imgSrc)
