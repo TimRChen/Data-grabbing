@@ -50,7 +50,8 @@ let getAlbumsAsync = () => {
                     albums.push({
                         title: element.children[1].attribs.alt,
                         url: element.attribs.href,
-                        imgList: []
+                        imgSrc: element.children[1].attribs.src,
+                        imgList: [],
                     });
                 });
             } catch (e) {
@@ -161,23 +162,27 @@ let downloadImg = albumList => {
     q.push(imgListTemp);
 };
 
-// 定义渲染内容
+// 渲染模板配置
 let options = {};
 
 async function dataGrab() {
     let albums = await getAlbumsAsync();
     let albumList = await getImageListAsync(albums);
+    // 自动下载图片    
     // writeJsonToFile(albumList);
     // if (Config.downloadImg) {
     //     downloadImg(albumList);
     // }
+
     options = {
         title: 'Albums',
-        photos: albumList,
-    };
+        albums: albums,
+    }; 
 }
 
+// 抓取数据
 dataGrab();
+
 
 
 // 服务器配置

@@ -3,9 +3,11 @@ html(lang="en")
     head
         title!= options.title
     body
-        - let photos = options.photos;
+        - let albums = options.albums;
+        h1 Warning! 18 without permission!
         div.page
             ol
-                - for (let i = 0; i < photos.length; i++) 
+                - for (let i = 0; i < albums.length; i++) 
                     li 
-                        a(href=photos[i].url) #{photos[i].title}
+                        a(href=albums[i].url) #{albums[i].title}
+                        img(src=albums[i].imgSrc)
