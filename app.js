@@ -167,17 +167,18 @@ let options = {};
 async function dataGrab() {
     let albums = await getAlbumsAsync();
     let albumList = await getImageListAsync(albums);
-    writeJsonToFile(albumList);
-    if (Config.downloadImg) {
-        downloadImg(albumList);
-    }
+    // writeJsonToFile(albumList);
+    // if (Config.downloadImg) {
+    //     downloadImg(albumList);
+    // }
     options = {
         title: 'Albums',
-        photos: JSON.stringify(albumList),
+        photos: albumList,
     };
 }
 
 dataGrab();
+
 
 // 服务器配置
 let app = express();
@@ -186,11 +187,11 @@ app.set('views', './views');
 app.set('view engine', 'pug');
 
 app.get('/', (req, res) => {
-    res.render('show', {title: 'Hey', message: 'Hello there!'});
+    res.render('show');
 });
 
 app.get('/open', (req, res) => {
-    res.render('pic', options);
+    res.render('pic', {options});
 });
 
 app.listen(3000);
